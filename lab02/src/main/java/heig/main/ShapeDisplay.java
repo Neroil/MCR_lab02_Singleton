@@ -6,8 +6,8 @@ import java.awt.*;
 public class ShapeDisplay extends JFrame implements Displayer{
 
     private static ShapeDisplay instance;
-    private JPanel panel;
-    private Image image;
+    private final JPanel panel;
+    private final Image image;
 
     public static ShapeDisplay getInstance(){
         if(instance == null){
