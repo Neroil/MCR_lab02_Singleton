@@ -50,6 +50,7 @@ public class GraphicalObject {
             direction.y = Math.abs(direction.y);
         }
 
+        //Move the object
         pos.x += direction.x;
         pos.y += direction.y;
         form.place(pos);
