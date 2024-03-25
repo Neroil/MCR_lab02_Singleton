@@ -4,7 +4,11 @@ package heig.main;
 import java.awt.*;
 
 public interface Form {
-    public Shape drawShape();
+    Shape drawShape();
 
-    public void place(Point loc);
+    void place(Point loc);
+
+    Dimension getSize();
+
+    Color getColor();
 }
