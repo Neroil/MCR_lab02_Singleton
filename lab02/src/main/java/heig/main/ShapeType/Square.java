@@ -10,4 +10,13 @@ public abstract class Square extends BounceableObject {
         super(pos);
         this.side = side;
     }
+
+    public Square(int x, int y, int side){
+        this(new Point(x, y), side);
+    }
+
+    @Override
+    public Shape getShape() {
+        return new Rectangle(pos.x,pos.y,side,side);
+    }
 }
