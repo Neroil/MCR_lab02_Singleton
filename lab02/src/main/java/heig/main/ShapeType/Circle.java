@@ -1,35 +1,19 @@
-// Circle.java
 package heig.main.ShapeType;
 
-import heig.main.Form;
+import heig.main.BounceableObject;
 
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 
-public class Circle extends Ellipse2D.Double implements Form {
-    private final int diameter;
+public abstract class Circle extends BounceableObject {
+    private double diameter;
 
-    public Circle(double radius, Point loc) {
-        super(loc.x, loc.y, radius * 2, radius * 2);
-        this.diameter = (int) radius * 2;
+    public Circle(Point pos, double diameter) {
+        super(pos);
+        this.diameter = diameter;
     }
 
-    public Shape drawShape(){
-        return this;
+    public Circle(int x, int y, double diameter) {
+        this(new Point(x,y),diameter);
     }
 
-    @Override
-    public void place(Point loc) {
-        setFrame(loc.x, loc.y, diameter, diameter);
-    }
-
-    @Override
-    public Dimension getSize() {
-        return new Dimension(diameter, diameter);
-    }
-
-    @Override
-    public Color getColor() {
-        return Color.BLUE;
-    }
 }

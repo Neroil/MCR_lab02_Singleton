@@ -1,4 +1,3 @@
-// ShapeDisplay.java
 package heig.main;
 
 import heig.main.ShapeType.Circle;
@@ -13,40 +12,38 @@ import java.util.Random;
 
 public class ShapeDisplay extends JPanel implements Displayer {
     private static ShapeDisplay instance;
-    private final List<GraphicalObject> shapes = new ArrayList<>();
+    private final List<BounceableObject> shapes = new ArrayList<>();
     private final Random random = new Random();
 
     public static ShapeDisplay getInstance() {
         if (instance == null) {
             instance = new ShapeDisplay();
         }
+
         return instance;
     }
 
-    private ShapeDisplay() {}
-
-    @Override
-    public void addNotify() {
-        super.addNotify();
+    private ShapeDisplay() {
         initShapes();
         startTimer();
     }
 
     private void initShapes() {
         for (int i = 0; i < 10; i++) {
+            //Figure out why the shapes are not centered
             int x = this.getWidth() / 2;
             int y = this.getHeight() / 2;
             if (random.nextBoolean()) {
-                shapes.add(new GraphicalObject(new Circle(random.nextInt(50) + 10, new Point(x, y)), new Point(x, y)));
+                shapes.add(new BounceableObject(new Circle(random.nextInt(50) + 10, new Point(x, y)), new Point(x, y)));
             } else {
-                shapes.add(new GraphicalObject(new Square(random.nextInt(50) + 10, new Point(x, y)), new Point(x, y)));
+                shapes.add(new BounceableObject(new Square(random.nextInt(50) + 10, new Point(x, y)), new Point(x, y)));
             }
         }
     }
 
     private void startTimer() {
         new Timer(16, e -> {
-            for (GraphicalObject shape : shapes) {
+            for (BounceableObject shape : shapes) {
                 shape.moveAndBounce(getWidth(), getHeight());
             }
             repaint();
@@ -57,7 +54,7 @@ public class ShapeDisplay extends JPanel implements Displayer {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        for (GraphicalObject shape : shapes) {
+        for (BounceableObject shape : shapes) {
             shape.drawItself(g2d);
         }
     }

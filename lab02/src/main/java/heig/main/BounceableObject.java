@@ -2,29 +2,17 @@ package heig.main;
 
 import java.awt.*;
 
-public class GraphicalObject {
-    Form form;
-    Point pos;
+public abstract class BounceableObject implements Bounceable {
+    protected Point pos;
     Point direction; //Mathematical vector
-    int speed;
 
-    GraphicalObject(Form form, Point pos){
+    protected BounceableObject(Point pos){
         this.pos = pos;
-        this.form = form;
-        this.form.place(pos);
-        //Generate a random direction
         direction = new Point((int)(Math.random()*10)+1, (int)(Math.random()*10)+1);
-        speed = (int) (Math.random() * 10);
     }
 
-    void drawItself(Graphics2D g){
-        g.setColor(form.getColor());
-        g.fill(form.drawShape());
-    }
-
-    public void moveAndBounce(int maxWidth, int maxHeight) {
-        Dimension size = form.getSize();
-
+    @Override
+    public void move() {
         //Bounce if we reach the limits
         if (pos.x + direction.x < 0 || pos.x + size.width + direction.x > maxWidth) {
             direction.x = -direction.x;
@@ -54,5 +42,11 @@ public class GraphicalObject {
         pos.x += direction.x;
         pos.y += direction.y;
         form.place(pos);
+    }
+
+
+    @Override
+    public Shape getShape() {
+        return null;
     }
 }
