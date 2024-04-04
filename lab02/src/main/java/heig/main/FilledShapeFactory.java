@@ -33,7 +33,7 @@ public class FilledShapeFactory implements ShapeFactory {
         return new FilledCircle(pos, size){
             @Override
             public void draw() {
-                renderer.display(ShapeDisplay.getInstance().getGraphics(), this);
+                renderer.display((Graphics2D) graphics, this);
             }
         };
     }
@@ -43,7 +43,7 @@ public class FilledShapeFactory implements ShapeFactory {
         return new FilledSquare(pos, size){
             @Override
             public void draw() {
-                renderer.display(ShapeDisplay.getInstance().getGraphics(), this);
+                renderer.display((Graphics2D) graphics, this);
             }
         };
     }

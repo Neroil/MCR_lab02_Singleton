@@ -9,6 +9,12 @@ public abstract class BounceableObject implements Bounceable {
     protected int maxWidth;
     protected int maxHeight;
 
+    protected Graphics graphics;
+
+    public void setGraphics(Graphics graphics) {
+        this.graphics = graphics;
+    }
+
     protected BounceableObject(Point pos) {
         this.pos = pos;
         direction = new Point((int)(Math.random()*10)+1, (int)(Math.random()*10)+1);

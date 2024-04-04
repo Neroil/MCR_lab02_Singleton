@@ -34,7 +34,7 @@ public class BorderShapeFactory implements ShapeFactory {
         return new BorderCircle(pos, size){
             @Override
             public void draw() {
-                renderer.display(ShapeDisplay.getInstance().getGraphics(), this);
+                renderer.display((Graphics2D) graphics, this);
             }
         };
     }
@@ -44,7 +44,7 @@ public class BorderShapeFactory implements ShapeFactory {
         return new BorderSquare(pos, size){
             @Override
             public void draw() {
-                renderer.display(ShapeDisplay.getInstance().getGraphics(), this);
+                renderer.display((Graphics2D) graphics, this);
             }
         };
     }
