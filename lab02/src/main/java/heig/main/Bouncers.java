@@ -16,12 +16,11 @@ public class Bouncers {
     private final LinkedList<Bounceable> bouncers;
     private final JPanel panel;
     private final ShapeDisplay display;
-    private final JFrame frame;
 
     public Bouncers() {
         bouncers = new LinkedList<>();
         display = ShapeDisplay.getInstance();
-        frame = ShapeDisplay.getInstance();
+
 
         panel = new JPanel() {
             @Override
@@ -55,10 +54,10 @@ public class Bouncers {
                 bouncers.clear();
                 break;
             case KeyEvent.VK_B:
-                generateBorderedShapes();
+                generateShapes(BorderShapeFactory.getInstance());
                 break;
             case KeyEvent.VK_F:
-                generateFilledShapes();
+                generateShapes(FilledShapeFactory.getInstance());
                 break;
             case KeyEvent.VK_Q:
                 System.exit(0);
@@ -66,56 +65,21 @@ public class Bouncers {
         }
     }
 
-    private void generateBorderedShapes() {
+    private void generateShapes(ShapeFactory factory) {
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
             int size = random.nextInt(50) + 10;
             int x = random.nextInt(display.getWidth() - size);
             int y = random.nextInt(display.getHeight() - size);
             if (random.nextBoolean()) {
-                bouncers.add(new BorderCircle(new Point(x, y), size));
+                bouncers.add(factory.createCircle(new Point(x, y), size));
             } else {
-                bouncers.add(new BorderSquare(new Point(x, y), size));
-            }
-        }
-    }
-
-    private void generateFilledShapes() {
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            int size = random.nextInt(50) + 10;
-            int x = random.nextInt(display.getWidth() - size);
-            int y = random.nextInt(display.getHeight() - size);
-            if (random.nextBoolean()) {
-                bouncers.add(new FilledCircle(new Point(x, y), size));
-            } else {
-                bouncers.add(new FilledSquare(new Point(x, y), size));
+                bouncers.add(factory.createSquare(new Point(x, y), size));
             }
         }
     }
 
     public void run() {
-
-        frame.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyChar()) {
-                    case 'e':
-                        bouncers.clear();
-                        break;
-                    case 'b':
-                        generateBorderedShapes();
-                        break;
-                    case 'f':
-                        generateFilledShapes();
-                        break;
-                    case 'q':
-                        System.exit(0);
-                        break;
-                }
-            }
-        });
-
         // Create a Timer that runs a TimerTask every 1000/60 milliseconds
         new Timer(16, e -> {
             for (Bounceable shape : bouncers) {

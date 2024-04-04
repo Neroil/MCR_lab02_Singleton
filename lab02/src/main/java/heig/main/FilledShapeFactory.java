@@ -1,16 +1,33 @@
 package heig.main;
 
 import heig.main.ShapeType.Circle;
+import heig.main.ShapeType.FilledCircle;
+import heig.main.ShapeType.FilledSquare;
 import heig.main.ShapeType.Square;
 
-public class FilledShapeFactory implements ShapeFactory{
-    @Override
-    public Square createSquare() {
-        return null;
+import java.awt.*;
+
+public class FilledShapeFactory implements ShapeFactory {
+
+    private static FilledShapeFactory instance;
+
+    private FilledShapeFactory() {}
+
+    public static FilledShapeFactory getInstance() {
+        if (instance == null) {
+            instance = new FilledShapeFactory();
+        }
+        return instance;
     }
 
     @Override
-    public Circle createCircle() {
-        return null;
+    public Bounceable createCircle(Point pos, int size) {
+        return new FilledCircle(pos, size);
     }
+
+    @Override
+    public Bounceable createSquare(Point pos, int size) {
+        return new FilledSquare(pos, size);
+    }
+
 }

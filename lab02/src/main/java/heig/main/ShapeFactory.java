@@ -2,7 +2,10 @@ package heig.main;
 
 import heig.main.ShapeType.*;
 
+import java.awt.*;
+
 public interface ShapeFactory {
-    Circle createCircle();
-    Square createSquare();
+
+    Bounceable createCircle(Point pos, int size);
+    Bounceable createSquare(Point pos, int size);
 }
