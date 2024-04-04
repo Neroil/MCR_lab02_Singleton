@@ -5,10 +5,20 @@ import java.awt.*;
 public abstract class BounceableObject implements Bounceable {
     protected Point pos;
     Point direction; //Mathematical vector
+    protected Dimension size;
+    protected int maxWidth;
+    protected int maxHeight;
 
     protected BounceableObject(Point pos){
         this.pos = pos;
         direction = new Point((int)(Math.random()*10)+1, (int)(Math.random()*10)+1);
+        maxWidth = ShapeDisplay.getInstance().getWidth();
+        maxHeight = ShapeDisplay.getInstance().getHeight();
+    }
+
+    @Override
+    public void draw() {
+        ShapeRenderer.getInstance().display(ShapeDisplay.getInstance().getGraphics(), this);
     }
 
     @Override
@@ -25,6 +35,7 @@ public abstract class BounceableObject implements Bounceable {
             pos.x = maxWidth - size.width;
             direction.x = -Math.abs(direction.x);
         }
+
         if (pos.x < 0) {
             pos.x = 0;
             direction.x = Math.abs(direction.x);
@@ -42,11 +53,5 @@ public abstract class BounceableObject implements Bounceable {
         pos.x += direction.x;
         pos.y += direction.y;
         form.place(pos);
-    }
-
-
-    @Override
-    public Shape getShape() {
-        return null;
     }
 }

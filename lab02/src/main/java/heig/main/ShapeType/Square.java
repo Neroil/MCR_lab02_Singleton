@@ -4,7 +4,7 @@ import heig.main.BounceableObject;
 import java.awt.*;
 
 public abstract class Square extends BounceableObject {
-    private int side;
+    private final int side;
 
     public Square(Point pos, int side){
         super(pos);
