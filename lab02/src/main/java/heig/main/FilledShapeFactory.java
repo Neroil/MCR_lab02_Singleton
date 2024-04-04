@@ -9,6 +9,14 @@ import java.awt.*;
 
 public class FilledShapeFactory implements ShapeFactory {
 
+    Renderer renderer = new Renderer() {
+        @Override
+        public void display(Graphics2D g, Bounceable b) {
+            g.setColor(b.getColor());
+            g.fill(b.getShape());
+        }
+    };
+
     private static FilledShapeFactory instance;
 
     private FilledShapeFactory() {}
@@ -22,12 +30,22 @@ public class FilledShapeFactory implements ShapeFactory {
 
     @Override
     public Bounceable createCircle(Point pos, int size) {
-        return new FilledCircle(pos, size);
+        return new FilledCircle(pos, size){
+            @Override
+            public void draw() {
+                renderer.display(ShapeDisplay.getInstance().getGraphics(), this);
+            }
+        };
     }
 
     @Override
     public Bounceable createSquare(Point pos, int size) {
-        return new FilledSquare(pos, size);
+        return new FilledSquare(pos, size){
+            @Override
+            public void draw() {
+                renderer.display(ShapeDisplay.getInstance().getGraphics(), this);
+            }
+        };
     }
 
 }

@@ -16,9 +16,8 @@ public abstract class BounceableObject implements Bounceable {
         maxHeight = ShapeDisplay.getInstance().getHeight();
     }
 
-    @Override
-    public void draw() {
-        ShapeRenderer.getInstance().display(ShapeDisplay.getInstance().getGraphics(), this);
+    public void draw(){
+        //Do nothing
     }
 
     @Override

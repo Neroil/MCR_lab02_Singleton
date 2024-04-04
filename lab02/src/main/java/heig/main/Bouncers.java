@@ -25,11 +25,23 @@ public class Bouncers {
         panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
-                super.paintComponent(g); // Clear the background
-                Graphics2D g2d = (Graphics2D) g;
+                // Create an off-screen image for double buffering
+                Image offScreenImage = createImage(getWidth(), getHeight());
+                Graphics offScreenGraphics = offScreenImage.getGraphics();
+
+                // Clear the off-screen image
+                super.paintComponent(offScreenGraphics);
+
+                // Draw the shapes on the off-screen image
                 for (Bounceable shape : bouncers) {
-                    ShapeRenderer.getInstance().display(g2d, shape); // Doesn't work with draw()
+                    shape.draw();
                 }
+
+                // Copy the off-screen image to the screen
+                g.drawImage(offScreenImage, 0, 0, this);
+
+                // Dispose the off-screen graphics to free up system resources
+                offScreenGraphics.dispose();
             }
         };
 
