@@ -1,5 +1,8 @@
 package heig.main;
 
+import heig.main.ShapeType.BorderCircle;
+import heig.main.ShapeType.BorderSquare;
+
 import java.awt.*;
 
 public class ShapeRenderer implements Renderer {
@@ -17,6 +20,12 @@ public class ShapeRenderer implements Renderer {
     @Override
     public void display(Graphics2D g, Bounceable b) {
         g.setColor(b.getColor());
-        g.fill(b.getShape());
+        //C'est de la merde
+        if (b instanceof BorderCircle || b instanceof BorderSquare) {
+            g.setStroke(new BasicStroke(2));
+            g.draw(b.getShape());
+        } else {
+            g.fill(b.getShape());
+        }
     }
 }

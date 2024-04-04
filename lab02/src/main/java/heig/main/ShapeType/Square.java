@@ -19,4 +19,12 @@ public abstract class Square extends BounceableObject {
     public Shape getShape() {
         return new Rectangle(pos.x,pos.y,side,side);
     }
+
+    public double getHeight(){
+        return side;
+    }
+
+    public double getWidth(){
+        return side;
+    }
 }

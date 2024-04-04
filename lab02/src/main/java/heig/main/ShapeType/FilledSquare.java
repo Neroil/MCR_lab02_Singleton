@@ -9,12 +9,7 @@ public class FilledSquare extends Square{
     }
 
     @Override
-    public void draw() {
-
-    }
-
-    @Override
     public Color getColor() {
-        return Color.BLUE;
+        return Color.YELLOW;
     }
 }

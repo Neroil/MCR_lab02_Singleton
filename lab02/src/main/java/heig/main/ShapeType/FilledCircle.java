@@ -4,15 +4,12 @@ import java.awt.*;
 
 public class FilledCircle extends Circle{
 
-    FilledCircle(Point pos, int diameter){super(pos,diameter);}
-
-    @Override
-    public Color getColor() {
-        return null;
+    public FilledCircle(Point pos, int diameter){
+        super(pos,diameter);
     }
 
     @Override
-    public void draw() {
-
+    public Color getColor() {
+        return Color.BLUE;
     }
 }

@@ -22,4 +22,11 @@ public abstract class Circle extends BounceableObject {
         return new Ellipse2D.Double(pos.x,pos.y,diameter,diameter);
     }
 
+    public double getWidth(){
+        return diameter;
+    }
+
+    public double getHeight(){
+        return diameter;
+    }
 }

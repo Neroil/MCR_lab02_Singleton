@@ -5,17 +5,13 @@ import java.awt.*;
 
 public class BorderSquare extends Square{
 
-    BorderSquare(Point pos, int side){super(pos, side);}
-
-    @Override
-    public void draw() {
-
+    public BorderSquare(Point pos, int side){
+        super(pos, side);
     }
-
-
 
     @Override
     public Color getColor() {
         return Color.RED;
     }
+
 }

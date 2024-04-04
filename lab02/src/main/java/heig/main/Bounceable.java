@@ -9,4 +9,7 @@ public interface Bounceable {
     void move();
     Color getColor();
     Shape getShape();
+    double getWidth();
+    double getHeight();
+
 }
