@@ -64,6 +64,9 @@ public class Bouncers {
         }
     }
 
+    /**
+     * This is where the timer used to render the shapes is started and where is defined the rendering loop.
+     */
     public void run() {
         // Create a Timer that runs a TimerTask every 1000/60 milliseconds
         new Timer(16, e -> {
@@ -78,6 +81,10 @@ public class Bouncers {
     }
 
 
+    /**
+     * Main function that creates a new Bouncers and runs it.
+     * @param args The arguments given to the program (not used here)
+     */
     public static void main(String... args) {
         new Bouncers().run();
     }

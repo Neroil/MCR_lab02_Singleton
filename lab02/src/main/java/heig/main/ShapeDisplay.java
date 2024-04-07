@@ -33,16 +33,15 @@ public class ShapeDisplay implements Displayer {
                 super.paintComponent(getGraphics());
                 g.drawImage(image, 0, 0, this);
             }
-
         };
+
+        //Frame settings
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         frame.setContentPane(panel);
         frame.setVisible(true);
         panel.setBackground(Color.WHITE);
-
-        //To not have flickering
-        panel.setOpaque(false);
+        panel.setOpaque(false); //To not have flickering...
         frame.setResizable(true);
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
@@ -52,31 +51,50 @@ public class ShapeDisplay implements Displayer {
         frame.addKeyListener(keyAdapter);
     }
 
+    /**
+     * @return the width of the panel
+     */
     @Override
     public int getWidth() {
         return frame.getContentPane().getWidth();
     }
 
+    /**
+     * @return the height of the panel
+     */
     @Override
     public int getHeight() {
         return frame.getContentPane().getHeight();
     }
 
+    /**
+     * @return the graphics of the image to draw on
+     */
     @Override
     public Graphics2D getGraphics() {
         return (Graphics2D) image.getGraphics();
     }
 
+    /**
+     * Repaints the whole frame
+     */
     @Override
     public void repaint() {
         frame.repaint();
     }
 
+    /**
+     * Set the title of the frame
+     * @param title the title to set
+     */
     @Override
     public void setTitle(String title){
         frame.setTitle(title);
     }
 
+    /**
+     * Reset the image to a new one with the right dimensions
+     */
     public void resetImage() {
         image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
     }

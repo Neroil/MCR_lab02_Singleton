@@ -9,6 +9,14 @@ import heig.main.ShapeType.Square;
 
 import java.awt.*;
 
+/**
+ * Factory for creating shapes with only a border
+ *
+ * @author Junod Arthur
+ * @author Häffner Edwin
+ * @version 1.0
+ * @since 2024-03-14
+ */
 public class BorderShapeFactory extends ShapeFactory {
 
     private static BorderShapeFactory instance;
