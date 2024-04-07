@@ -21,6 +21,10 @@ public class BorderShapeFactory extends ShapeFactory {
 
     private static BorderShapeFactory instance;
 
+    /**
+     * Private constructor to use with the singleton model. It creates a renderer that we'll use only with the
+     * border shapes.
+     */
     private BorderShapeFactory() {
         super(new Renderer() {
             @Override
@@ -32,6 +36,10 @@ public class BorderShapeFactory extends ShapeFactory {
         });
     }
 
+    /**
+     * The function that allow us to access the instance of BorderShapeFactory.
+     * @return A new instance if there isn't already one or the existing one.
+     */
     public static BorderShapeFactory getInstance() {
         if (instance == null) {
             instance = new BorderShapeFactory();
@@ -39,6 +47,13 @@ public class BorderShapeFactory extends ShapeFactory {
         return instance;
     }
 
+    /**
+     * Create a border circle at the given pos with the given size.
+     * We implement the missing abstract methods of our shape.
+     * @param pos Position of the circle
+     * @param size Size of the circle
+     * @return A new border circle
+     */
     @Override
     public Bounceable createCircle(Point pos, int size) {
         return new Circle(pos, size){
@@ -54,6 +69,13 @@ public class BorderShapeFactory extends ShapeFactory {
         };
     }
 
+    /**
+     * Create a border square at the given pos with the given size.
+     * We implement the missing abstract methods of our shape.
+     * @param pos Position of the square
+     * @param size Size of the square
+     * @return A new border square
+     * */
     @Override
     public Bounceable createSquare(Point pos, int size) {
         return new Square(pos, size){

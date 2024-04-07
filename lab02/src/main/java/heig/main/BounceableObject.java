@@ -15,9 +15,9 @@ public abstract class BounceableObject implements Bounceable {
     private final static int SPEED_MULTIPLIER = 10;
 
     protected Point pos;
-    protected Point direction;
-    protected int maxWidth;
-    protected int maxHeight;
+    private final Point direction;
+    private int maxWidth;
+    private int maxHeight;
 
     protected BounceableObject(Point pos) {
         this.pos = pos;

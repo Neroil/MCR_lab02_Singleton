@@ -8,10 +8,22 @@ import heig.main.ShapeType.Square;
 
 import java.awt.*;
 
+/**
+ * Factory for creating filled shapes
+ *
+ * @author Junod Arthur
+ * @author Häffner Edwin
+ * @version 1.0
+ * @since 2024-03-14
+ */
 public class FilledShapeFactory extends ShapeFactory {
 
     private static FilledShapeFactory instance;
 
+    /**
+     * Private constructor to use with the singleton model. It creates a renderer that we'll use only with the
+     * filled shapes.
+     */
     private FilledShapeFactory() {
         super(new Renderer() {
             @Override
@@ -22,6 +34,10 @@ public class FilledShapeFactory extends ShapeFactory {
         });
     }
 
+    /**
+     * The function that allow us to access the instance of FilledShapeFactory.
+     * @return A new instance if there isn't already one or the existing one.
+     */
     public static FilledShapeFactory getInstance() {
         if (instance == null) {
             instance = new FilledShapeFactory();
@@ -29,6 +45,13 @@ public class FilledShapeFactory extends ShapeFactory {
         return instance;
     }
 
+    /**
+     * Create a filled circle at the given pos with the given size.
+     * We implement the missing abstract methods of our shape.
+     * @param pos Position of the circle
+     * @param size Size of the circle
+     * @return A new filled circle
+     */
     @Override
     public Bounceable createCircle(Point pos, int size) {
         return new Circle(pos, size){
@@ -44,6 +67,13 @@ public class FilledShapeFactory extends ShapeFactory {
         };
     }
 
+    /**
+     * Create a filled square at the given pos with the given size.
+     * We implement the missing abstract methods of our shape.
+     * @param pos Position of the square
+     * @param size Size of the square
+     * @return A new filled square
+     */
     @Override
     public Bounceable createSquare(Point pos, int size) {
         return new Square(pos, size){

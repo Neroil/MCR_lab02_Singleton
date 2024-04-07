@@ -1,21 +1,32 @@
 package heig.main;
 
-import heig.main.ShapeType.Circle;
-import heig.main.ShapeType.Square;
-
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ComponentEvent;
 import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.util.LinkedList;
 
+/**
+ * The class used to display our shapes (Bounceable).
+ * It implements the singleton model.
+ *
+ * @author Junod Arthur
+ * @author Häffner Edwin
+ * @version 1.0
+ * @since 2024-03-14
+ */
 public class ShapeDisplay implements Displayer {
+    // Base size parameters of our JFrame
+    private static final int WIDTH = 600;
+    private static final int HEIGHT = 600;
+
     private static ShapeDisplay instance;
     private final JFrame frame = new JFrame();
     private Image image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+
+    /**
+     * Function of the singleton model used to access the instance of our ShapeDisplay.
+     * @return A new instance if there's none or the existing one.
+     */
     public static ShapeDisplay getInstance() {
         if (instance == null) {
             instance = new ShapeDisplay();
@@ -23,9 +34,9 @@ public class ShapeDisplay implements Displayer {
         return instance;
     }
 
-    private static final int WIDTH = 600;
-    private static final int HEIGHT = 600;
-
+    /**
+     * Private constructor of our class that setups our JFrame and redefine the paintComponents() function of our JPanel.
+     */
     private ShapeDisplay(){
         JPanel panel = new JPanel() {
             @Override
@@ -47,6 +58,10 @@ public class ShapeDisplay implements Displayer {
         frame.setVisible(true);
     }
 
+    /**
+     * Allow us to add a key listener to the JFrame of our ShapeDisplay.
+     * @param keyAdapter The KeyListener to add.
+     */
     public void addKeyListener(KeyAdapter keyAdapter){
         frame.addKeyListener(keyAdapter);
     }
