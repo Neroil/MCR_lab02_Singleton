@@ -54,4 +54,5 @@ public abstract class BounceableObject implements Bounceable {
 
     public abstract Color getColor();
     public abstract Shape getShape();
+    public abstract void draw();
 }

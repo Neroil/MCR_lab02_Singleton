@@ -76,4 +76,8 @@ public class ShapeDisplay implements Displayer {
     public void setTitle(String title){
         frame.setTitle(title);
     }
+
+    public void resetImage() {
+        image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+    }
 }
