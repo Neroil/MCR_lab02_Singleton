@@ -1,19 +1,12 @@
 package heig.main;
 
 import java.awt.*;
-import java.awt.geom.Dimension2D;
 
 public abstract class BounceableObject implements Bounceable {
     protected Point pos;
     protected Point direction;
     protected int maxWidth;
     protected int maxHeight;
-
-    protected Graphics graphics;
-
-    public void setGraphics(Graphics graphics) {
-        this.graphics = graphics;
-    }
 
     protected BounceableObject(Point pos) {
         this.pos = pos;
@@ -22,15 +15,10 @@ public abstract class BounceableObject implements Bounceable {
         maxHeight = ShapeDisplay.getInstance().getHeight();
     }
 
-    public void draw(){
-        //Do nothing
-    }
-
     @Override
     public void move() {
-        Insets insets = ShapeDisplay.getInstance().getInsets();
-        maxWidth = ShapeDisplay.getInstance().getWidth() - insets.left - insets.right;
-        maxHeight = ShapeDisplay.getInstance().getHeight() - insets.top - insets.bottom;
+        maxWidth = ShapeDisplay.getInstance().getWidth();
+        maxHeight = ShapeDisplay.getInstance().getHeight();
 
 
         // Bounce if we reach the limits

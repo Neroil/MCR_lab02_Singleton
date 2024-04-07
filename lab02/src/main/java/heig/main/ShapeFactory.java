@@ -4,8 +4,17 @@ import heig.main.ShapeType.*;
 
 import java.awt.*;
 
-public interface ShapeFactory {
+public abstract class ShapeFactory {
+    protected Renderer renderer;
 
-    Bounceable createCircle(Point pos, int size);
-    Bounceable createSquare(Point pos, int size);
+    public ShapeFactory(Renderer renderer) {
+        this.renderer = renderer;
+    }
+
+    protected void drawShape(Bounceable b) {
+        renderer.display(ShapeDisplay.getInstance().getGraphics(), b);
+    }
+
+    public abstract Bounceable createCircle(Point pos, int size);
+    public abstract Bounceable createSquare(Point pos, int size);
 }
