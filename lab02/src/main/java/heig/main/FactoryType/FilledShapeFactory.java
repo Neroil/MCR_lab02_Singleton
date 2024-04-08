@@ -4,6 +4,8 @@ import heig.main.Bounceable;
 import heig.main.Renderer;
 import heig.main.ShapeFactory;
 import heig.main.ShapeType.Circle;
+import heig.main.ShapeType.FilledCircle;
+import heig.main.ShapeType.FilledSquare;
 import heig.main.ShapeType.Square;
 
 import java.awt.*;
@@ -24,15 +26,7 @@ public class FilledShapeFactory extends ShapeFactory {
      * Private constructor to use with the singleton model. It creates a renderer that we'll use only with the
      * filled shapes.
      */
-    private FilledShapeFactory() {
-        super(new Renderer() {
-            @Override
-            public void display(Graphics2D g, Bounceable b) {
-                g.setColor(b.getColor());
-                g.fill(b.getShape());
-            }
-        });
-    }
+    private FilledShapeFactory() {}
 
     /**
      * The function that allow us to access the instance of FilledShapeFactory.
@@ -53,17 +47,7 @@ public class FilledShapeFactory extends ShapeFactory {
      */
     @Override
     public Bounceable createCircle(Point pos, int size) {
-        return new Circle(pos, size){
-            @Override
-            public void draw() {
-                drawShape(this);
-            }
-
-            @Override
-            public Color getColor() {
-                return Color.BLUE;
-            }
-        };
+        return new FilledCircle(pos, size);
     }
 
     /**
