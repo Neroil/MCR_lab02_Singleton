@@ -47,7 +47,6 @@ public class FilledShapeFactory extends ShapeFactory {
 
     /**
      * Create a filled circle at the given pos with the given size.
-     * We implement the missing abstract methods of our shape.
      * @param pos Position of the circle
      * @param size Size of the circle
      * @return A new filled circle
@@ -69,24 +68,13 @@ public class FilledShapeFactory extends ShapeFactory {
 
     /**
      * Create a filled square at the given pos with the given size.
-     * We implement the missing abstract methods of our shape.
      * @param pos Position of the square
      * @param size Size of the square
      * @return A new filled square
      */
     @Override
     public Bounceable createSquare(Point pos, int size) {
-        return new Square(pos, size){
-            @Override
-            public void draw() {
-                drawShape(this);
-            }
-
-            @Override
-            public Color getColor() {
-                return Color.YELLOW;
-            }
-        };
+        return new FilledSquare(pos, size);
     }
 
 }

@@ -2,10 +2,9 @@ package heig.main.FactoryType;
 
 
 import heig.main.Bounceable;
-import heig.main.Renderer;
 import heig.main.ShapeFactory;
-import heig.main.ShapeType.Circle;
-import heig.main.ShapeType.Square;
+import heig.main.ShapeType.BorderCircle;
+import heig.main.ShapeType.BorderSquare;
 
 import java.awt.*;
 
@@ -22,19 +21,9 @@ public class BorderShapeFactory extends ShapeFactory {
     private static BorderShapeFactory instance;
 
     /**
-     * Private constructor to use with the singleton model. It creates a renderer that we'll use only with the
-     * border shapes.
+     * Private constructor to use with the singleton model.
      */
-    private BorderShapeFactory() {
-        super(new Renderer() {
-            @Override
-            public void display(Graphics2D g, Bounceable b) {
-                g.setColor(b.getColor());
-                g.setStroke(new BasicStroke(2));
-                g.draw(b.getShape());
-            }
-        });
-    }
+    private BorderShapeFactory() {}
 
     /**
      * The function that allow us to access the instance of BorderShapeFactory.
@@ -56,17 +45,7 @@ public class BorderShapeFactory extends ShapeFactory {
      */
     @Override
     public Bounceable createCircle(Point pos, int size) {
-        return new Circle(pos, size){
-            @Override
-            public void draw() {
-                drawShape(this);
-            }
-
-            @Override
-            public Color getColor() {
-                return Color.GREEN;
-            }
-        };
+        return new BorderCircle(pos,size);
     }
 
     /**
@@ -78,16 +57,6 @@ public class BorderShapeFactory extends ShapeFactory {
      * */
     @Override
     public Bounceable createSquare(Point pos, int size) {
-        return new Square(pos, size){
-            @Override
-            public void draw() {
-                drawShape(this);
-            }
-
-            @Override
-            public Color getColor() {
-                return Color.RED;
-            }
-        };
+        return new BorderSquare(pos,size);
     }
 }
