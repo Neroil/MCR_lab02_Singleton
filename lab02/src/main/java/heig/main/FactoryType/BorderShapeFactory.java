@@ -16,7 +16,7 @@ import java.awt.*;
  * @version 1.0
  * @since 2024-03-14
  */
-public class BorderShapeFactory extends ShapeFactory {
+public class BorderShapeFactory implements ShapeFactory {
 
     private static BorderShapeFactory instance;
 
@@ -38,7 +38,6 @@ public class BorderShapeFactory extends ShapeFactory {
 
     /**
      * Create a border circle at the given pos with the given size.
-     * We implement the missing abstract methods of our shape.
      * @param pos Position of the circle
      * @param size Size of the circle
      * @return A new border circle
@@ -50,7 +49,6 @@ public class BorderShapeFactory extends ShapeFactory {
 
     /**
      * Create a border square at the given pos with the given size.
-     * We implement the missing abstract methods of our shape.
      * @param pos Position of the square
      * @param size Size of the square
      * @return A new border square

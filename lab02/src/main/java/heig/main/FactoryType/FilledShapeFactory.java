@@ -1,12 +1,9 @@
 package heig.main.FactoryType;
 
 import heig.main.Bounceable;
-import heig.main.Renderer;
 import heig.main.ShapeFactory;
-import heig.main.ShapeType.Circle;
 import heig.main.ShapeType.FilledCircle;
 import heig.main.ShapeType.FilledSquare;
-import heig.main.ShapeType.Square;
 
 import java.awt.*;
 
@@ -18,7 +15,7 @@ import java.awt.*;
  * @version 1.0
  * @since 2024-03-14
  */
-public class FilledShapeFactory extends ShapeFactory {
+public class FilledShapeFactory implements ShapeFactory {
 
     private static FilledShapeFactory instance;
 
