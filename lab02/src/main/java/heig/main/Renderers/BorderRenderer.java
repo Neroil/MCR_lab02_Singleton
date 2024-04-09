@@ -18,8 +18,7 @@ public class BorderRenderer implements Renderer {
     private static final int STROKE_WIDTH = 2;
     private static BorderRenderer instance = null;
 
-    private BorderRenderer() {
-    }
+    private BorderRenderer() {}
 
     /**
      * The function that allow us to access the instance of BorderRenderer.

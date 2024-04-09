@@ -25,7 +25,7 @@ import javax.swing.Timer;
  * @since 2024-03-14
  */
 public class Bouncers {
-    private static final int NUM_SHAPE_CREATED = 10; //Per shape, will create twice as much
+    private static final int NUM_SHAPES_CREATED = 10; //Per shape, will create twice as much
     private static final int MAX_SIZE = 50;
     private static final int MIN_SIZE = 10;
     private static final int TIMER_DELAY = 16;
@@ -79,7 +79,7 @@ public class Bouncers {
      * @param factory The factory we have to use when creating the shape
      */
     private void generateShapes(ShapeFactory factory) {
-        for (int i = 0; i < NUM_SHAPE_CREATED; i++) {
+        for (int i = 0; i < NUM_SHAPES_CREATED; i++) {
             int size = random.nextInt(MAX_SIZE) + MIN_SIZE;
             int x = random.nextInt(display.getWidth() - size + 1);
             int y = random.nextInt(display.getHeight() - size + 1);
