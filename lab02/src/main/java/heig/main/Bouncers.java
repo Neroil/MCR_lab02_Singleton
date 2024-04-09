@@ -25,7 +25,7 @@ import javax.swing.Timer;
  * @since 2024-03-14
  */
 public class Bouncers {
-    private static final int NUM_SHAPE_CREATED = 10;
+    private static final int NUM_SHAPE_CREATED = 10; //Per shape, will create twice as much
     private static final int MAX_SIZE = 50;
     private static final int MIN_SIZE = 10;
     private static final int TIMER_DELAY = 16;
