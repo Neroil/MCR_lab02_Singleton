@@ -92,14 +92,15 @@ public class Bouncers {
      * This is where the timer used to render the shapes is started and where is defined the rendering loop.
      */
     public void run() {
-        // Create a Timer that runs a TimerTask every 1000/60 milliseconds
+        // Create a Timer that runs a TimerTask every TIMER_DELAY milliseconds
         new Timer(TIMER_DELAY, e -> {
+            // Reset the image, so we restart from a blank screen that has the right dimensions
             display.resetImage();
+            // Move and draw all the shapes on the now blank screen
             for (Bounceable shape : bouncers) {
                 shape.move();
                 shape.draw();
             }
-
             display.repaint();
         }).start();
     }
