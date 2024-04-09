@@ -50,7 +50,6 @@ public class ShapeDisplay implements Displayer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH, HEIGHT);
         frame.setContentPane(panel);
-        frame.setVisible(true);
         panel.setBackground(Color.WHITE);
         panel.setOpaque(false); //To not have flickering...
         frame.setResizable(true);
