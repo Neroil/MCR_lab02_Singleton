@@ -83,11 +83,8 @@ public class Bouncers {
             int size = random.nextInt(MAX_SIZE) + MIN_SIZE;
             int x = random.nextInt(display.getWidth() - size + 1);
             int y = random.nextInt(display.getHeight() - size + 1);
-            if (random.nextBoolean()) {
-                bouncers.add(factory.createCircle(new Point(x, y), size));
-            } else {
-                bouncers.add(factory.createSquare(new Point(x, y), size));
-            }
+            bouncers.add(factory.createCircle(new Point(x, y), size));
+            bouncers.add(factory.createSquare(new Point(x, y), size));
         }
     }
 

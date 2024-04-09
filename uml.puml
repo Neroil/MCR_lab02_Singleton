@@ -1,0 +1,10 @@
+@startuml singleton
+interface Displayer
+class DisplayShape extends JFrame implements Displayer
+abstract class GraphicalShape implements Shape
+class circle extends GraphicalShape
+class square extends GraphicalShape
+
+DisplayShape -- GraphicalShape
+
+@enduml
