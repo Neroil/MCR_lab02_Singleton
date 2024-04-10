@@ -22,7 +22,8 @@ public abstract class BounceableObject implements Bounceable {
         this.pos = pos;
 
         //We add 1 to avoid having a speed of 0
-        direction = new Point((int) (Math.random() * SPEED_MULTIPLIER) + 1, (int) (Math.random() * SPEED_MULTIPLIER) + 1);
+        direction = new Point((int) (Math.random() * SPEED_MULTIPLIER) + 1,
+                           (int) (Math.random() * SPEED_MULTIPLIER) + 1);
         maxWidth = ShapeDisplay.getInstance().getWidth();
         maxHeight = ShapeDisplay.getInstance().getHeight();
     }
@@ -36,8 +37,8 @@ public abstract class BounceableObject implements Bounceable {
     }
 
     /**
-     * Move the object within the window, bouncing if we reach the limits and keeping the object inside the window
-     * if it is resized
+     * Move the object within the window, bouncing if we reach the limits and keeping the object
+     * inside the window if it is resized
      */
     @Override
     public void move() {

@@ -36,7 +36,8 @@ public class ShapeDisplay implements Displayer {
     }
 
     /**
-     * Private constructor of our class that setups our JFrame and redefine the paintComponents() function of our JPanel.
+     * Private constructor of our class that setups our JFrame and redefine the paintComponents()
+     * function of our JPanel.
      */
     private ShapeDisplay() {
         JPanel panel = new JPanel() {
@@ -123,6 +124,7 @@ public class ShapeDisplay implements Displayer {
      */
     public void setMinimumSize(int width, int height) {
         Insets insets = frame.getInsets();
-        frame.setMinimumSize(new Dimension(width + insets.left + insets.right, height + insets.top + insets.bottom));
+        frame.setMinimumSize(new Dimension(width + insets.left + insets.right,
+                                     height + insets.top + insets.bottom));
     }
 }

@@ -15,9 +15,10 @@ import javax.swing.Timer;
  * It calls the rendering loop with a timer and contains all the Bounceable objects and the display used.
  * It's also here that we define what to do when we press keys.
  * Program description:
- * This program allows you to create shapes that bounces on the walls of the window's frame. You can also resize the window
- * and the shapes will adapt to the new size. You can create filled shapes with the 'F' key, border shapes with the 'B'
- * key, clear the screen with the 'E' key and quit the program with the 'Q' key.
+ * This program allows you to create shapes that bounces on the walls of the window's frame.
+ * You can also resize the window and the shapes will adapt to the new size. You can create filled
+ * shapes with the 'F' key, border shapes with the 'B' key, clear the screen with the 'E' key
+ * and quit the program with the 'Q' key.
  *
  * @author Junod Arthur
  * @author Häffner Edwin
