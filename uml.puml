@@ -123,6 +123,7 @@ class ShapeDisplay {
   + getHeight() : int
   + setTitle(String) : String
   + getGraphics() : Graphics2D
+  + setMinimumSize(int, int): void
 }
 
 interface ShapeFactory << interface >> {

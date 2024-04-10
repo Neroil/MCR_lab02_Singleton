@@ -115,4 +115,14 @@ public class ShapeDisplay implements Displayer {
     public void resetImage() {
         image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
     }
+
+    /**
+     * Set the minimum size of the frame
+     * @param width The minimum width
+     * @param height The minimum height
+     */
+    public void setMinimumSize(int width, int height) {
+        Insets insets = frame.getInsets();
+        frame.setMinimumSize(new Dimension(width + insets.left + insets.right, height + insets.top + insets.bottom));
+    }
 }

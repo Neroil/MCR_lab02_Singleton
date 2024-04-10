@@ -50,6 +50,8 @@ public class Bouncers {
         };
 
         display.addKeyListener(keyAdapter);
+        // Set the minimum size of the display to avoid having a window smaller than the shapes
+        display.setMinimumSize(MAX_SIZE, MAX_SIZE);
     }
 
 
@@ -83,8 +85,8 @@ public class Bouncers {
     private void generateShapes(ShapeFactory factory) {
         for (int i = 0; i < NUM_SHAPES_CREATED; i++) {
             int size = random.nextInt(MAX_SIZE) + MIN_SIZE;
-            int x = random.nextInt(display.getWidth() - size + 1);
-            int y = random.nextInt(display.getHeight() - size + 1);
+            int x = random.nextInt(display.getWidth() - size/2 + 1);
+            int y = random.nextInt(display.getHeight() - size/2 + 1);
             bouncers.add(factory.createCircle(new Point(x, y), size));
             bouncers.add(factory.createSquare(new Point(x, y), size));
         }
