@@ -1,6 +1,5 @@
 package heig.main.FactoryType;
 
-
 import heig.main.Bounceable;
 import heig.main.ShapeFactory;
 import heig.main.ShapeType.BorderCircle;
@@ -23,10 +22,12 @@ public class BorderShapeFactory implements ShapeFactory {
     /**
      * Private constructor to use with the singleton model.
      */
-    private BorderShapeFactory() {}
+    private BorderShapeFactory() {
+    }
 
     /**
      * The function that allow us to access the instance of BorderShapeFactory.
+     *
      * @return A new instance if there isn't already one or the existing one.
      */
     public static BorderShapeFactory getInstance() {
@@ -38,23 +39,25 @@ public class BorderShapeFactory implements ShapeFactory {
 
     /**
      * Create a border circle at the given pos with the given size.
-     * @param pos Position of the circle
+     *
+     * @param pos  Position of the circle
      * @param size Size of the circle
      * @return A new border circle
      */
     @Override
     public Bounceable createCircle(Point pos, int size) {
-        return new BorderCircle(pos,size);
+        return new BorderCircle(pos, size);
     }
 
     /**
      * Create a border square at the given pos with the given size.
-     * @param pos Position of the square
+     *
+     * @param pos  Position of the square
      * @param size Size of the square
      * @return A new border square
-     * */
+     */
     @Override
     public Bounceable createSquare(Point pos, int size) {
-        return new BorderSquare(pos,size);
+        return new BorderSquare(pos, size);
     }
 }

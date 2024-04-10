@@ -24,19 +24,20 @@ public abstract class Circle extends BounceableObject {
 
     /**
      * Get a shape object of this Circle
+     *
      * @return Shape
      */
     @Override
     public Shape getShape() {
-        return new Ellipse2D.Double(pos.x,pos.y,diameter,diameter);
+        return new Ellipse2D.Double(pos.x, pos.y, diameter, diameter);
     }
 
 
-    public double getWidth(){
+    public double getWidth() {
         return diameter;
     }
 
-    public double getHeight(){
+    public double getHeight() {
         return diameter;
     }
 }

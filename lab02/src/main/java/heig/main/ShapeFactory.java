@@ -4,6 +4,7 @@ import java.awt.*;
 
 /**
  * Abstract class ShapeFactory
+ * Used to create shapes
  *
  * @author Junod Arthur
  * @author Häffner Edwin
@@ -12,5 +13,6 @@ import java.awt.*;
  */
 public interface ShapeFactory {
     Bounceable createCircle(Point pos, int size);
+
     Bounceable createSquare(Point pos, int size);
 }

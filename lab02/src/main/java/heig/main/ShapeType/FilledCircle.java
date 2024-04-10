@@ -6,30 +6,32 @@ import heig.main.Renderers.FilledRenderer;
 import java.awt.*;
 
 /**
- * The class that represents a filled circle.
+ * A filled circle.
  *
  * @author Junod Arthur
  * @author Häffner Edwin
  * @version 1.0
  * @since 2024-03-14
  */
-public class FilledCircle extends Circle{
+public class FilledCircle extends Circle {
 
-    public FilledCircle(Point pos, double diameter){
+    public FilledCircle(Point pos, double diameter) {
         super(pos, diameter);
     }
 
     /**
      * Get the color of the circle
+     *
      * @return The color of the circle
      */
     @Override
-    public Color getColor () {
+    public Color getColor() {
         return Color.BLUE;
     }
 
     /**
      * Get the renderer of the circle
+     *
      * @return The renderer of the circle
      */
     @Override

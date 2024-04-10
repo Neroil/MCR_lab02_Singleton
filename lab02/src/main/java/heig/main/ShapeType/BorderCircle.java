@@ -13,7 +13,7 @@ import java.awt.*;
  * @version 1.0
  * @since 2024-03-14
  */
-public class BorderCircle extends Circle{
+public class BorderCircle extends Circle {
 
     public BorderCircle(Point pos, double diameter) {
         super(pos, diameter);
@@ -21,15 +21,17 @@ public class BorderCircle extends Circle{
 
     /**
      * Get the color of the circle
+     *
      * @return The color of the circle
      */
     @Override
-    public Color getColor () {
+    public Color getColor() {
         return Color.GREEN;
     }
 
     /**
      * Get the renderer of the circle
+     *
      * @return The renderer of the circle
      */
     @Override

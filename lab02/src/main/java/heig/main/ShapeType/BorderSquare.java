@@ -15,6 +15,7 @@ public class BorderSquare extends Square {
 
     /**
      * Get the color of the square
+     *
      * @return The color of the square
      */
     @Override
@@ -24,6 +25,7 @@ public class BorderSquare extends Square {
 
     /**
      * Get the renderer of the square
+     *
      * @return The renderer of the square
      */
     @Override

@@ -18,10 +18,12 @@ public class FilledRenderer implements Renderer {
 
     private static FilledRenderer instance = null;
 
-    private FilledRenderer() {}
+    private FilledRenderer() {
+    }
 
     /**
      * The function that allow us to access the instance of FilledRenderer.
+     *
      * @return A new instance if there isn't already one or the existing one.
      */
     public static FilledRenderer getInstance() {
@@ -33,6 +35,7 @@ public class FilledRenderer implements Renderer {
 
     /**
      * Display the shape filled with its color.
+     *
      * @param g The graphics object
      * @param b The shape to display
      */

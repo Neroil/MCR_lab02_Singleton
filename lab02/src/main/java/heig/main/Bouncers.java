@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 /**
  * The main class.
- * It calls the rendering loop with a timer and contains all the Bounceable and the display used.
+ * It calls the rendering loop with a timer and contains all the Bounceable objects and the display used.
  * It's also here that we define what to do when we press keys.
  * Program description:
  * This program allows you to create shapes that bounces on the walls of the window's frame. You can also resize the window
@@ -55,6 +55,7 @@ public class Bouncers {
 
     /**
      * Function that handle the events to call when certain keys are pressed.
+     *
      * @param keyCode The code of the key pressed.
      */
     private void handleKeyPress(int keyCode) {
@@ -76,6 +77,7 @@ public class Bouncers {
 
     /**
      * Create the shape with a random position and random size.
+     *
      * @param factory The factory we have to use when creating the shape
      */
     private void generateShapes(ShapeFactory factory) {
@@ -89,7 +91,7 @@ public class Bouncers {
     }
 
     /**
-     * This is where the timer used to render the shapes is started and where is defined the rendering loop.
+     * Creates a Timer that draws all the shapes every TIMER_DELAY milliseconds.
      */
     public void run() {
         // Create a Timer that runs a TimerTask every TIMER_DELAY milliseconds
@@ -108,6 +110,7 @@ public class Bouncers {
 
     /**
      * Main function that creates a new Bouncers and runs it.
+     *
      * @param args The arguments given to the program (not used here)
      */
     public static void main(String... args) {

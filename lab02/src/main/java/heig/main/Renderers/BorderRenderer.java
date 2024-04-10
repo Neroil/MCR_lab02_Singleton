@@ -18,10 +18,12 @@ public class BorderRenderer implements Renderer {
     private static final int STROKE_WIDTH = 2;
     private static BorderRenderer instance = null;
 
-    private BorderRenderer() {}
+    private BorderRenderer() {
+    }
 
     /**
      * The function that allow us to access the instance of BorderRenderer.
+     *
      * @return A new instance if there isn't already one or the existing one.
      */
     public static BorderRenderer getInstance() {
@@ -33,6 +35,7 @@ public class BorderRenderer implements Renderer {
 
     /**
      * Display the border of the shape with its color.
+     *
      * @param g The graphics object
      * @param b The shape to display
      */

@@ -13,24 +13,26 @@ import java.awt.*;
  */
 public abstract class BounceableObject implements Bounceable {
     private final static int SPEED_MULTIPLIER = 10;
-
     protected Point pos;
     private final Point direction;
     private int maxWidth;
     private int maxHeight;
 
-    @Override
-    public void draw() {
-        getRenderer().display(ShapeDisplay.getInstance().getGraphics(), this);
-    }
-
     protected BounceableObject(Point pos) {
         this.pos = pos;
 
         //We add 1 to avoid having a speed of 0
-        direction = new Point((int)(Math.random()*SPEED_MULTIPLIER)+1, (int)(Math.random()*SPEED_MULTIPLIER)+1);
+        direction = new Point((int) (Math.random() * SPEED_MULTIPLIER) + 1, (int) (Math.random() * SPEED_MULTIPLIER) + 1);
         maxWidth = ShapeDisplay.getInstance().getWidth();
         maxHeight = ShapeDisplay.getInstance().getHeight();
+    }
+
+    /**
+     * Draw the object using the renderer returned by getRenderer
+     */
+    @Override
+    public void draw() {
+        getRenderer().display(ShapeDisplay.getInstance().getGraphics(), this);
     }
 
     /**
@@ -66,7 +68,7 @@ public abstract class BounceableObject implements Bounceable {
     /**
      * If the window is resized, moves the object back into the window
      */
-    private void bounceResize(){
+    private void bounceResize() {
         //Checking x position
         if (pos.x + getWidth() > maxWidth) {
             pos.x = (int) (maxWidth - getWidth());
@@ -88,6 +90,8 @@ public abstract class BounceableObject implements Bounceable {
     }
 
     public abstract Color getColor();
+
     public abstract Shape getShape();
+
     protected abstract Renderer getRenderer();
 }

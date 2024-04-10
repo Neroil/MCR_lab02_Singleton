@@ -25,6 +25,7 @@ public class ShapeDisplay implements Displayer {
 
     /**
      * Function of the singleton model used to access the instance of our ShapeDisplay.
+     *
      * @return A new instance if there's none or the existing one.
      */
     public static ShapeDisplay getInstance() {
@@ -37,7 +38,7 @@ public class ShapeDisplay implements Displayer {
     /**
      * Private constructor of our class that setups our JFrame and redefine the paintComponents() function of our JPanel.
      */
-    private ShapeDisplay(){
+    private ShapeDisplay() {
         JPanel panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -59,9 +60,10 @@ public class ShapeDisplay implements Displayer {
 
     /**
      * Allow us to add a key listener to the JFrame of our ShapeDisplay.
+     *
      * @param keyAdapter The KeyListener to add.
      */
-    public void addKeyListener(KeyAdapter keyAdapter){
+    public void addKeyListener(KeyAdapter keyAdapter) {
         frame.addKeyListener(keyAdapter);
     }
 
@@ -99,10 +101,11 @@ public class ShapeDisplay implements Displayer {
 
     /**
      * Set the title of the frame
+     *
      * @param title the title to set
      */
     @Override
-    public void setTitle(String title){
+    public void setTitle(String title) {
         frame.setTitle(title);
     }
 
